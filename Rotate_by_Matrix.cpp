@@ -73,11 +73,13 @@ void EditTransformPlugin::slot_rotate()
 	if(my_steps == 1)
 	{
 		m->cm.Tr = my_matrix;	// 这样就是一步完成
+		widget->ui.OK_Button->setEnabled(false);	// 完成了就不让点 OK 了
 		QMessageBox::information(widget, QString::fromLocal8Bit("完成提示框"), QString::fromLocal8Bit("旋转已完成!"), QMessageBox::Close);
 		return;
 	}
 	if(cur_step == my_steps + 1)
 	{
+		widget->ui.OK_Button->setEnabled(false);	// 完成了就不让点 OK 了
 		QMessageBox::information(widget, QString::fromLocal8Bit("完成提示框"), QString::fromLocal8Bit("旋转已完成!"), QMessageBox::Close);
 		return;
 	}
